@@ -1,0 +1,355 @@
+
+/*
+header{
+    border:2px solid black;
+
+    margin-bottom:1rem;
+    display: grid;
+    grid-area:header;
+    grid-template-rows: auto;
+    grid-template-columns: 5rem auto 5rem;
+    grid-template-areas:   "hamburger header_content logout";
+}
+
+#app_logo{
+    display:inline-block;
+    max-width:2rem;
+    max-height:2rem;
+    width:5rem;
+    height:5rem;
+    border:1px solid black;
+}
+
+#app_name{
+    margin-right:5rem;
+}
+
+#header_content{
+    grid-area:header_content;
+    padding-block:1.5rem;
+    font-size:1.3rem;
+}
+
+
+#logout_container{
+    grid-area:logout;
+}
+
+#logout_button{
+    padding:1rem;
+    margin-block:0.5rem;
+}
+
+#hamburger_container{
+    grid-area:hamburger;
+    padding-block:1.3rem;
+    padding-left:0.7rem;
+}
+
+.hamburger_bar {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px;
+    transition: 0.4s;
+}
+
+.change #hamburger_bar_1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change #hamburger_bar_2 {opacity: 0;}
+
+.change #hamburger_bar_3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+#main{
+    grid-area:main;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+}
+
+#menu.shown{
+    display:inline-block;
+    width:10vw;
+    height:76vh;
+    opacity:1;
+    border:2px solid black;
+    margin-right:1rem;
+    padding:1rem;
+    animation-name: showMenu;
+    animation-duration: 2s;
+}
+#menu.hiding{
+    display:inline-block;
+    width:10vw;
+    height:76vh;
+    padding:1rem;
+    border:2px solid black;
+    opacity:1;
+    animation-name: hideMenu;
+    animation-duration: 2s;
+}
+#menu.hidden{
+display:none;
+}
+
+@keyframes showMenu {
+     from {
+         width:0;
+         height:0;
+         opacity:0;
+         color:transparent;
+         border:0 solid transparent;
+     }
+}
+@keyframes hideMenu {
+    to {
+        width:0;
+        height:0;
+        opacity:0;
+        color:transparent;
+        border:0 solid transparent;
+        font-size: 0;
+        padding:0;
+    }
+}
+
+#content{
+    display:inline-block;
+    transition: 2.5s;
+}
+
+#footer{
+    grid-area:footer;
+}
+*/
+:root{
+    --main_margin: 1rem;
+    --main_padding: 2rem;
+    --main_border: 2px;
+    --main_border_style: solid;
+    --main_border_color: black;
+    --menu_width:20rem;
+    --menu_total_width:20rem auto;
+    --main_extra_width: calc((2 * var(--main_margin)) + (2 * var(--main_padding)) + (2 * var(--main_border)));
+    --main_extra_height: calc((2 * var(--main_margin)) + (2 * var(--main_padding)) + (2 * var(--main_border)));
+}
+body{
+    padding:0;
+    margin:0;
+    display: grid;
+    grid-template-areas:    "menu content";
+    grid-template-columns: var(--menu_total_width);
+;
+}
+
+h1{
+    background:rgba(0 0 0 / 0.5);
+    color:white;
+    text-shadow: 1px 2px black;
+    user-select:none;
+}
+#menu{
+    grid-area:menu;
+    display:inline-block;
+    height:calc(100vh - (2 * var(--main_margin)));
+    margin:var(--main_margin);
+    padding:var(--main_padding);
+    padding-block:0;
+    border-width:var(--main_border);
+    border-style:var(--main_border_style);
+    border-color:var(--main_border_color);
+    text-align:center;
+    overflow:auto;
+    background:rgba(0 0 0 / 0.5);
+}
+
+#company_logo img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0.5rem;
+    width:100%;
+    max-height:3.5rem;
+
+    text-align:center;
+}
+#user_logged{
+    display:inline-block;
+    margin-bottom:1rem;
+}
+#menu section{
+    padding-bottom:0.5rem;
+    margin-bottom:1rem;
+    border-bottom:1px dotted black;
+}
+#menu section:last-of-type{
+    padding-bottom:1rem;
+    margin-bottom:1rem;
+    border-bottom:0px solid black;
+}
+.icon{
+    display:inline-block;
+    margin-right:1rem;
+    max-width:1rem;
+    max-height:1rem;
+    text-shadow: 1px 2px black;
+}
+
+#menu ul{
+    margin:0;
+    padding:0;
+}
+#menu li{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    margin-bottom:0.5rem;
+}
+#menu li a{
+    display:block;
+    margin:0;
+    padding:0.3rem;
+    text-decoration:none;
+    border-width:1px;
+    border-style:var(--main_border_style);
+    border-color:var(--main_border_color);
+    text-align:left;
+    background:rgba(0 0 0 / 0.5);
+    color:white;
+    text-shadow: 1px 2px black;
+    user-select:none;
+
+}
+
+#menu li a:hover{
+    background:white;
+    color:black;
+    text-shadow: 0px 0px black;
+}
+
+#menu #logout_button{
+    background:indianred;
+    color:darkred;
+    text-shadow: 0px 0px black;
+}
+
+#menu #logout_button:hover{
+    background:darkred;
+    color:red;
+}
+
+main{
+    grid-area:content;
+    display:inline-block;
+    height:calc(100vh - (2 * var(--main_margin)));
+    margin:var(--main_margin);
+    margin-left:0;
+    padding:0;
+    border-width:var(--main_border);
+    border-style:var(--main_border_style);
+    border-color:transparent;
+    overflow:auto;
+}
+#page_title{
+    margin-top:0;
+    border-width:var(--main_border);
+    border-style:var(--main_border_style);
+    border-color:var(--main_border_color);
+    padding:0.5rem;
+}
+
+#data_table{
+    border-style:solid;
+    border-color:var(--main_border_color);
+    border-width:var(--main_border);
+    margin-top:1rem;
+    width:auto;
+}
+
+#data_table td,#data_table th{
+    padding-inline:2rem;
+}
+
+#data_table th{
+    background:rgba(0 0 0 / 0.5);
+    padding-block:1rem;
+    border-bottom-width:var(--main_border);
+    border-color:var(--main_border_color);
+    border-bottom-style:solid;
+    user-select:none;
+}
+
+#data_table th:first-of-type{
+    padding-left:1.5rem;
+}
+
+#data_table th:last-of-type{
+    padding-right:1.5rem;
+}
+
+#data_table td{
+    padding-block:0.5rem;
+    padding-bottom:0.5rem;
+}
+
+#data_table td:first-of-type{
+    padding-left:1.5rem;
+}
+#data_table td:last-of-type{
+    padding-right:1.5rem;
+}
+
+#data_table tr:nth-of-type(even) td{
+    background:darkgrey;
+}
+#data_table tr:nth-of-type(even) td input:not([type=submit]):read-only, #data_table tr:nth-of-type(even) td select:disabled{
+    background:lightgrey;
+    color:dimgrey;
+}
+#data_table tr:nth-of-type(odd) td{
+    background:lightgrey;
+}
+
+#data_table tr:nth-of-type(odd) td input:not([type=submit]):read-only, #data_table tr:nth-of-type(odd) td select:disabled{
+    background:darkgrey;
+    color:white;
+}
+
+#data_table td form{
+    display:inline-block;
+}
+
+#cms input, #cms a, #add_button, #mineSager{
+    border-style:var(--main_border_style);
+    border-color:var(--main_border_color);
+    border-width:var(--main_border);
+    padding:0.7rem;
+    font-weight:bold;
+    margin-top:1rem;
+}
+input:not([type=submit]):read-only, select:disabled {
+    cursor: default;
+}
+.hidden{
+    display:none;
+}
+input:not([type=submit]), select{
+    padding:0.5rem;
+}{
+    padding:0.5rem;
+}
+
+#create_form{
+    padding:0;
+    margin-top:1rem;
+}
+#create_form input[type=text]{
+    margin:0;
+}
+#create_form input[type=submit]{
+    margin:0;
+    margin-top:-0.4rem;
+}
