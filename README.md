@@ -3,6 +3,7 @@
 ### Prerequisites
 - A webserver such as Apache
 - PHP 8.0 or newer
+- Composer 2.3.0 or newer
 
 ### CLI Commands to Run
 #### Install Dependencies
