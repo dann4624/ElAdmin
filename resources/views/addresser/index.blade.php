@@ -82,7 +82,7 @@
         editButton.parentElement.parentElement.children[3].firstElementChild.removeAttribute('readonly'); // Remove the readonly attribute from the "Navn" input
         editButton.parentElement.parentElement.children[4].firstElementChild.removeAttribute('readonly'); // Remove the readonly attribute from the "Navn" input
         editButton.parentElement.parentElement.children[5].firstElementChild.removeAttribute('disabled'); // Remove the readonly attribute from the "Navn" input
-        editButton.parentElement.parentElement.children[6].firstElementChild.classList.remove('hidden'); // Show the Update button
+        editButton.parentElement.parentElement.children[7].firstElementChild.classList.remove('hidden'); // Show the Update button
         editButton.classList.add('hidden'); // Hide the Edit button
     }
 </script>
